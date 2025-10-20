@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Каталог — SoundMart</title>
+  <link rel="stylesheet" href="1.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+        <div class="brand">
+            <img src="1.png" alt="SoundMart Logo" style="width: 120px; height: auto;">
+            <div>
+                <div>SoundMart</div>
+                <small style="color: var(--muted); font-weight: 500;">Инструменты для музыки и творчества</small>
+            </div>
+        </div>
+      <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="О Нас.html">О нас</a></li>
+            <li><a href="Каталог.html" class="active">Каталог</a></li>
+            <li><a href="Доставка.html">Доставка и оплата</a></li>
+            <li><a href="Контакты.html">Контакты</a></li>
+            <li><a href="Отзывы.html">Отзывы</a></li>
+            <li><span class="cart-icon" id="openCartModal">&#128722;</span></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h1>Каталог инструментов</h1>
+      
+      <div class="horizontal-scroll" id="catalog-list">
+        <div class="card" onclick="openProductModal('Акустическая гитара Yamaha F310', 'yamaha-f310p-tbs-3-800x800.jpg', '42 900 ₸', 'Идеальная гитара для начинающих. Обеспечивает теплое, глубокое звучание и легкое управление. Изготовлена из отборных пород дерева.')">
+          <img src="yamaha-f310p-tbs-3-800x800.jpg" alt="Акустическая гитара Yamaha F310">
+          <h3>Акустическая гитара Yamaha F310</h3>
+          <p class="price">42 900 ₸</p>
+          <button class="btn-order" onclick="event.stopPropagation(); addToCart('Акустическая гитара Yamaha F310')">Заказать</button> 
+        </div>
+        <div class="card" onclick="openProductModal('Электрогитара Fender Stratocaster', 'i.webp', '189 000 ₸', 'Легендарная электрогитара. Классическое звучание Fender, три сингла, винтажный тремоло. Отличный выбор для рока, блюза и фанка.')">
+          <img src="i.webp" alt="Электрогитара Fender Stratocaster">
+          <h3>Электрогитара Fender Stratocaster</h3>
+          <p class="price">189 000 ₸</p>
+          <button class="btn-order" onclick="event.stopPropagation(); addToCart('Электрогитара Fender Stratocaster')">Заказать</button>
+        </div>
+        <div class="card" onclick="openProductModal('Бас-гитара Ibanez GSR200', '02-gsr200mgr2-gif.webp', '125 500 ₸', 'Компактная и мощная бас-гитара от Ibanez. Идеальна для быстрого фанка и тяжелых стилей. Легкий корпус и тонкий гриф.')">
+          <img src="02-gsr200mgr2-gif.webp" alt="Бас-гитара Ibanez GSR200">
+          <h3>Бас-гитара Ibanez GSR200</h3>
+          <p class="price">125 500 ₸</p>
+          <button class="btn-order" onclick="event.stopPropagation(); addToCart('Бас-гитара Ibanez GSR200')">Заказать</button>
+        </div>
+
+        <div class="card" onclick="openProductModal('Синтезатор Casio CT-S300', 'optimize.webp', '98 000 ₸', 'Портативный синтезатор с 61 клавишей. Отличный выбор для обучения и домашних студий. Более 400 тембров и режимов обучения.')">
+          <img src="optimize.webp" alt="Синтезатор Casio CT-S300">
+          <h3>Синтезатор Casio CT-S300</h3>
+          <p class="price">98 000 ₸</p>
+          <button class="btn-order" onclick="event.stopPropagation(); addToCart('Синтезатор Casio CT-S300')">Заказать</button>
+        </div>
+        <div class="card" onclick="openProductModal('Электропианино Roland FP-10', 's-l1600.jpg', '345 000 ₸', 'Премиальное цифровое пианино с молоточковой механикой. Реалистичные ощущения, отличное звучание для классической и современной музыки.')">
+          <img src="s-l1600.jpg" alt="Электропианино Roland FP-10">
+          <h3>Электропианино Roland FP-10</h3>
+          <p class="price">345 000 ₸</p>
+          <button class="btn-order" onclick="event.stopPropagation(); addToCart('Электропианино Roland FP-10')">Заказать</button>
+        </div>
+        <div class="card" onclick="openProductModal('Скрипка Stentor Student II', 'i-img1200x1200-1661948684jv1ywp66672.jpg?c=2', '54 700 ₸', 'Полноразмерная скрипка для студентов. В комплекте идет смычок и футляр. Отличное качество для начинающих музыкантов.')">
+          <img src="i-img1200x1200-1661948684jv1ywp66672.jpg?c=2" alt="Скрипка Stentor Student II">
+          <h3>Скрипка Stentor Student II</h3>
+          <p class="price">54 700 ₸</p>
+          <button class="btn-order" onclick="event.stopPropagation(); addToCart('Скрипка Stentor Student II')">Заказать</button>
+        </div>
+
+        <div class="card" onclick="openProductModal('Барабанная установка Pearl Roadshow', 'pearl-rs585c-c31-3.jpg', '310 000 ₸', 'Полный комплект барабанов для начинающих и продвинутых. Включает 5 инструментов, тарелки и хардвер. Легко настраивается.')">
+          <img src="pearl-rs585c-c31-3.jpg" alt="Барабанная установка Pearl Roadshow">
+          <h3>Барабанная установка Pearl Roadshow</h3>
+          <p class="price">310 000 ₸</p>
+          <button class="btn-order" onclick="event.stopPropagation(); addToCart('Барабанная установка Pearl Roadshow')">Заказать</button>
+        </div>
+        <div class="card" onclick="openProductModal('Кахон Meinl Headliner', '600x600_1_normal_5f985488724a8de8f10ee72c77f1.webp', '47 800 ₸', 'Кахон для перкуссионистов. Обеспечивает глубокий бас и четкий слэп. Отлично подойдет для акустических выступлений.')">
+          <img src="600x600_1_normal_5f985488724a8de8f10ee72c77f1.webp" alt="Кахон Meinl Headliner">
+          <h3>Кахон Meinl Headliner</h3>
+          <p class="price">47 800 ₸</p>
+          <button class="btn-order" onclick="event.stopPropagation(); addToCart('Кахон Meinl Headliner')">Заказать</button>
+        </div>
+        <div class="card" onclick="openProductModal('Микрофон Shure SM58', 'bkf5ofw9c1s0cco8so44g44go.jpg', '62 500 ₸', 'Легендарный динамический вокальный микрофон. Стандарт для живых выступлений и студийной записи. Надежность и чистота звука.')">
+          <img src="bkf5ofw9c1s0cco8so44g44go.jpg" alt="Микрофон Shure SM58">
+          <h3>Микрофон Shure SM58</h3>
+          <p class="price">62 500 ₸</p>
+          <button class="btn-order" onclick="event.stopPropagation(); addToCart('Микрофон Shure SM58')">Заказать</button>
+        </div>
+
+        <div class="card" onclick="openProductModal('Микрофон Rode NT1-A', '5ad950c0542e342567fea72c5b54a6d3.jpg', '98 700 ₸', 'Студийный конденсаторный микрофон. Чрезвычайно низкий уровень шума, идеален для записи вокала и акустических инструментов.')">
+          <img src="5ad950c0542e342567fea72c5b54a6d3.jpg" alt="Конденсаторный микрофон Rode NT1-A">
+          <h3>Микрофон Rode NT1-A</h3>
+          <p class="price">98 700 ₸</p>
+          <button class="btn-order" onclick="event.stopPropagation(); addToCart('Микрофон Rode NT1-A')">Заказать</button>
+        </div>
+        <div class="card" onclick="openProductModal('Наушники Audio-Technica ATH-M40x', '5c8f5a055eaa9e780b076b97.jpg', '85 000 ₸', 'Профессиональные мониторные наушники. Отличная шумоизоляция, сбалансированное звучание, идеальны для студийной работы.')">
+          <img src="5c8f5a055eaa9e780b076b97.jpg" alt="Наушники Audio-Technica ATH-M40x">
+          <h3>Наушники Audio-Technica ATH-M40x</h3>
+          <p class="price">85 000 ₸</p>
+          <button class="btn-order" onclick="event.stopPropagation(); addToCart('Наушники Audio-Technica ATH-M40x')">Заказать</button>
+        </div>
+        <div class="card" onclick="openProductModal('Медиаторы Dunlop (набор 12 шт.)', 'orig.webp', '2 900 ₸', 'Набор медиаторов разной толщины. Идеально подходят для акустической и электрогитары. Долговечный материал.')">
+          <img src="orig.webp" alt="Медиаторы Dunlop">
+          <h3>Медиаторы Dunlop (набор 12 шт.)</h3>
+          <p class="price">2 900 ₸</p>
+          <button class="btn-order" onclick="event.stopPropagation(); addToCart('Медиаторы Dunlop (набор 12 шт.)')">Заказать</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> SoundMart</footer>
+
+  <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeCartModal()">&times;</span>
+      <h2>🛒 Ваша корзина</h2>
+      <div id="cartItems">
+        <p>Корзина пуста. Начните покупки!</p>
+      </div>
+      <p style="margin-top: 15px; font-weight: bold;">Общее количество товаров: <span id="cartTotal">0</span> ед.</p>
+      <button class="cta" style="width: 100%; margin-top: 20px;" onclick="alert('Переход к оформлению заказа...');">Оформить заказ</button>
+      <button class="btn-order" style="width: 100%; margin-top: 10px; background: #c54242;" onclick="clearCart()">Очистить корзину</button>
+    </div>
+  </div>
+
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeProductModal()">&times;</span>
+      <h2 id="productTitle">Название товара</h2>
+      <div class="product-modal-body">
+        <img id="productImage" src="" alt="Изображение товара">
+        <div>
+            <p id="productDescription"></p>
+            <p class="price" id="productPrice" style="font-size: 1.5em;"></p>
+            <button class="cta" style="width: 100%;" id="productOrderButton">Заказать</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // =========================================
+    // Функционал Корзины 
+    // =========================================
+    const cartModal = document.getElementById('cartModal');
+    const openCartBtn = document.getElementById('openCartModal');
+    const cartItemsDiv = document.getElementById('cartItems');
+    const cartTotalSpan = document.getElementById('cartTotal');
+    
+    // Хранение данных в LocalStorage
+    let cart = JSON.parse(localStorage.getItem('soundmartCart')) || [];
+    
+    function saveCart() {
+        localStorage.setItem('soundmartCart', JSON.stringify(cart));
+    }
+
+    function renderCart() {
+        if (cart.length === 0) {
+            cartItemsDiv.innerHTML = '<p>Корзина пуста. Начните покупки!</p>';
+            cartTotalSpan.textContent = '0';
+            return;
+        }
+
+        let totalQuantity = 0;
+        let html = '<ul>';
+        
+        cart.forEach(item => {
+            html += `<li>${item.name} (${item.quantity} шт.)</li>`;
+            totalQuantity += item.quantity; 
+        });
+
+        html += '</ul>';
+        cartItemsDiv.innerHTML = html;
+        cartTotalSpan.textContent = totalQuantity;
+    }
+
+    function addToCart(itemName) {
+        const existingItem = cart.find(item => item.name === itemName);
+
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ name: itemName, quantity: 1 });
+        }
+        
+        saveCart();
+        renderCart(); 
+        // Не открываем модальное окно, чтобы не мешать при добавлении
+    }
+    
+    function clearCart() {
+        if (confirm("Вы уверены, что хотите очистить корзину?")) {
+            cart = [];
+            saveCart();
+            renderCart();
+            closeCartModal();
+        }
+    }
+    
+    function closeCartModal() {
+        cartModal.style.display = 'none';
+    }
+
+    // Обработчик для кнопки корзины в навигации
+    openCartBtn.onclick = function() {
+      renderCart(); 
+      cartModal.style.display = 'block';
+    }
+
+    // =========================================
+    // Функционал Модального окна Товара
+    // =========================================
+    const productModal = document.getElementById('productModal');
+    
+    function openProductModal(title, imageSrc, price, description) {
+        document.getElementById('productTitle').textContent = title;
+        document.getElementById('productImage').src = imageSrc;
+        document.getElementById('productDescription').textContent = description;
+        document.getElementById('productPrice').textContent = 'Цена: ' + price;
+        
+        // Обновляем кнопку "Заказать" в модальном окне
+        const orderBtn = document.getElementById('productOrderButton');
+        orderBtn.onclick = function() {
+            addToCart(title);
+            closeProductModal();
+            alert(`Товар "${title}" добавлен в корзину!`);
+        };
+
+        productModal.style.display = 'block';
+    }
+
+    function closeProductModal() {
+        productModal.style.display = 'none';
+    }
+    
+    // Закрытие модальных окон при клике вне их области
+    window.onclick = function(event) {
+      if (event.target == cartModal) {
+        closeCartModal();
+      }
+      if (event.target == productModal) {
+        closeProductModal();
+      }
+    }
+
+    // Инициализация корзины
+    renderCart();
+
+  </script>
+</body>
+</html>
