@@ -123,11 +123,21 @@
         <p>Корзина пуста. Начните покупки!</p>
       </div>
       <p style="margin-top: 15px; font-weight: bold;">Общее количество товаров: <span id="cartTotal">0</span> ед.</p>
-      <button class="cta" style="width: 100%; margin-top: 20px;" onclick="alert('Переход к оформлению заказа...');">Оформить заказ</button>
+      <button class="cta" id="cartCheckoutBtn" style="width: 100%; margin-top: 20px;">Оформить заказ</button>
       <button class="btn-order" style="width: 100%; margin-top: 10px; background: #c54242;" onclick="clearCart()">Очистить корзину</button>
     </div>
   </div>
 
+  <div id="paymentModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closePaymentModal()">&times;</span>
+      <h2>💳 Выберите способ оплаты</h2>
+      <div class="payment-options">
+        <button class="pay-card" onclick="handlePayment('card')">Оплата картой онлайн (сейчас)</button>
+        <button class="pay-delivery" onclick="handlePayment('delivery')">Оплата наличными или картой при получении</button>
+      </div>
+    </div>
+  </div>
   <div id="productModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeProductModal()">&times;</span>
@@ -153,7 +163,8 @@
     const openCartBtn = document.getElementById('openCartModal');
     const cartItemsDiv = document.getElementById('cartItems');
     const cartTotalSpan = document.getElementById('cartTotal');
-    
+    const cartCheckoutBtn = document.getElementById('cartCheckoutBtn'); // НОВОЕ: Кнопка оформления
+
     // Хранение данных в LocalStorage
     let cart = JSON.parse(localStorage.getItem('soundmartCart')) || [];
     
@@ -165,6 +176,8 @@
         if (cart.length === 0) {
             cartItemsDiv.innerHTML = '<p>Корзина пуста. Начните покупки!</p>';
             cartTotalSpan.textContent = '0';
+            cartCheckoutBtn.disabled = true; // Отключаем кнопку, если корзина пуста
+            cartCheckoutBtn.style.opacity = '0.5';
             return;
         }
 
@@ -179,6 +192,8 @@
         html += '</ul>';
         cartItemsDiv.innerHTML = html;
         cartTotalSpan.textContent = totalQuantity;
+        cartCheckoutBtn.disabled = false; // Включаем кнопку
+        cartCheckoutBtn.style.opacity = '1';
     }
 
     function addToCart(itemName) {
@@ -214,6 +229,47 @@
       cartModal.style.display = 'block';
     }
 
+    // НОВОЕ: Открытие модального окна оплаты
+    cartCheckoutBtn.onclick = function() {
+        if (cart.length > 0) {
+            closeCartModal(); // Закрываем корзину
+            openPaymentModal(); // Открываем окно оплаты
+        } else {
+            alert('Ваша корзина пуста!');
+        }
+    }
+
+    // =========================================
+    // НОВОЕ: Функционал Оплаты
+    // =========================================
+    const paymentModal = document.getElementById('paymentModal');
+
+    function openPaymentModal() {
+        paymentModal.style.display = 'block';
+    }
+
+    function closePaymentModal() {
+        paymentModal.style.display = 'none';
+    }
+
+    function handlePayment(method) {
+        let message = '';
+        if (method === 'card') {
+            message = '✅ Выбран способ: Оплата картой онлайн. Имитация перехода к платежному шлюзу...';
+        } else if (method === 'delivery') {
+            message = '✅ Выбран способ: Оплата при получении. Ваш заказ будет отправлен.';
+        }
+        
+        closePaymentModal();
+        
+        // Очищаем корзину после успешного "оформления"
+        cart = [];
+        saveCart();
+        renderCart();
+
+        alert(message + '\n\nСпасибо за заказ в SoundMart! Мы свяжемся с вами для подтверждения.');
+    }
+
     // =========================================
     // Функционал Модального окна Товара
     // =========================================
@@ -240,13 +296,17 @@
         productModal.style.display = 'none';
     }
     
-    // Закрытие модальных окон при клике вне их области
+    // Закрытие модальных окон при клике вне их области (ОБНОВЛЕНО)
     window.onclick = function(event) {
       if (event.target == cartModal) {
         closeCartModal();
       }
       if (event.target == productModal) {
         closeProductModal();
+      }
+      // НОВОЕ: Закрытие окна оплаты
+      if (event.target == paymentModal) {
+        closePaymentModal();
       }
     }
 
