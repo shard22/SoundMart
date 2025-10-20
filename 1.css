@@ -1,3 +1,5 @@
+/* Обновленный CSS: 1.css */
+
 :root {
   --bg: #0f1724;
   --card: #0b1220;
@@ -207,6 +209,43 @@ h1, h2, h3 { margin-top: 0; }
     height: auto;
     border-radius: 8px;
 }
+
+/* --- СТИЛИ ДЛЯ НОВОГО ОКНА ОПЛАТЫ --- */
+
+.payment-options button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.payment-options .pay-card {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+}
+
+.payment-options .pay-delivery {
+    background: transparent;
+    color: #fff;
+    border-color: var(--muted);
+}
+
+.payment-options .pay-card:hover {
+    background: #ffb86b;
+}
+
+.payment-options .pay-delivery:hover {
+    background: var(--glass);
+    border-color: #fff;
+}
+
 
 /* ========================================= */
 /* МЕДИА-ЗАПРОСЫ (АДАПТИВНОСТЬ) */
